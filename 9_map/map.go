@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"maps"
+)
 
 // MAP -> HASH,OBJ,DICT
 
@@ -38,6 +41,28 @@ func main() {
 
 	//to delete all the pairs at a time or say clear the map
 
-	clear(ma)
-	fmt.Println(ma)
+	// clear(ma)
+	// fmt.Println(ma)
+
+	mos := map[string]int{"price": 40, "phone": 3}
+	fmt.Println(mos)
+
+	//check whether the element is present in the map or not
+
+	v, ok := mos["phone"]
+	//v is the value retrieved from the map for key "phone" . if the key is missing , v is the zero value
+	fmt.Println(v)
+	//ok is a boolean that is true when the key exists in the map and false when it does not
+	if ok {
+		fmt.Println("all ok")
+	} else {
+		fmt.Println("not okay")
+	}
+
+	//to compare two diff maps we are going to use equal from maps named package
+
+	map1 := map[string]int{"price": 40, "phone": 3}
+	map2 := map[string]int{"price": 40, "phone": 3}
+
+	fmt.Println(maps.Equal(map1, map2))
 }
